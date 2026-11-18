@@ -12,8 +12,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Unzip project
         run: |
-          unzip -q ModBridge-1.7.0-shaders.zip
+          unzip -q ModBridge.zip
           ls ModBridge
+          test -f ModBridge/app/src/main/java/com/modbridge/app/ShaderPanel.kt && echo "SHADERS OK" || echo "NO SHADERS - old zip"
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
